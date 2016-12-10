@@ -18,16 +18,26 @@ public abstract class Function {
 
 	public void func(Data parameters) { // geht alle Funktionen durch und führt diese aus
 		Data data = Data.merge(stack, parameters);
-		for (Function f : functions)
-		{
+		for (Function f : functions) {
 			f.func(data.getDataBySubset(f.getSubset()));
 		}
 	}
 
 	protected abstract DataSubset initializeSubset();
 
-	protected DataSubset getSubset()
-	{
+	public void addFunction(Function f, int index) {
+		functions.add(index, f);
+	}
+
+	public void addFunction(Function f) {
+		functions.add(f);
+	}
+
+	public void deleteFunction(int index) {
+		functions.remove(index);
+	}
+
+	protected DataSubset getSubset() {
 		return subset;
 	}
 }

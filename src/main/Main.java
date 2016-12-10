@@ -10,10 +10,11 @@ import data.Data;
 
 public class Main {
 	public static void main(String[] args) {
-		ArrayList<Function> a = new ArrayList<Function>();
-		//a.add(new Print("hello World"));
-		a.add(new Addition());
-		Function f = new SimpleFunction(a);
+		Function f = new SimpleFunction();
+		f.func(new Data(new int[] {2, 4}));
+
+		f.addFunction(new Addition());
+
 		f.func(new Data(new int[] {2, 4}));
 	}
 }
