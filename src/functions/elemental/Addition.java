@@ -2,7 +2,7 @@ package functions.elemental;
 
 import functions.ElementalFunction;
 import data.Data;
-import data.DataSubset;
+import data.DataPattern;
 
 public class Addition extends ElementalFunction
 {
@@ -11,14 +11,12 @@ public class Addition extends ElementalFunction
 		super();
 	}
 
-	@Override public void func(Data d)
-	{
-		int a = d.getInt(0);
-		int b = d.getInt(1);
-		System.out.println(a + " + " + b + " = " + (a + b));
+	@Override public DataPattern getDataPattern() {
+		return new DataPattern(2); // Es werden zwei Int-Parameter erwartet
 	}
 
-	@Override protected DataSubset initializeSubset() {
-		return new DataSubset(new int[] {0, 1});
+	@Override public void func(Data d)
+	{
+		System.out.println(d.getInt(0) + " + " + d.getInt(1) + " = " + (d.getInt(0) + d.getInt(1)));
 	}
 }

@@ -56,7 +56,7 @@ public class Data {
 		tmp_ints[tmp_ints.length-1] = n;
 	}
 
-	public int getInt(final int index) {
+	public int getInt(int index) {
 		if (index < 0 || index >= ints.length) {
 			System.out.println("[ERROR]: Data.getInt(index = " + index + "): index out of range. ints.length = " + ints.length);
 			return 0;
@@ -64,9 +64,19 @@ public class Data {
 		return ints[index];
 	}
 
-	public Data getDataBySubset(DataSubset sub) {
-		int[] indexes = sub.getIntIndexes();
+	public Data getDataByMask(DataMask mask) {
+		if (mask == null) {
+			System.out.println("[ERROR]: Data.getDataByMask(): mask == null");
+		}
+		int[] indexes = mask.getIntIndexes();
 		int[] ints = new int[indexes.length];
+		if (indexes == null) {
+			System.out.println("[ERROR]: Data.getDataByMask(): indexes == null");
+		}
+		if (ints == null) {
+			System.out.println("[ERROR]: Data.getDataByMask(): ints == null");
+		}
+
 		for (int i = 0; i < indexes.length; i++) {
 			ints[i] = getInt(indexes[i]);
 		}

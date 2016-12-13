@@ -2,7 +2,7 @@ package functions.elemental;
 
 import functions.ElementalFunction;
 import data.Data;
-import data.DataSubset;
+import data.DataPattern;
 
 public class Print extends ElementalFunction {
 	private String text;
@@ -12,11 +12,11 @@ public class Print extends ElementalFunction {
 		text = t;
 	}
 
-	@Override public void func(Data d) {
-		System.out.print(text);
+	@Override public DataPattern getDataPattern() {
+		return new DataPattern(0); // Es werden keine Parameter erwartet
 	}
 
-	@Override protected DataSubset initializeSubset() {
-		return new DataSubset();
+	@Override public void func(Data d) {
+		System.out.print(text);
 	}
 }

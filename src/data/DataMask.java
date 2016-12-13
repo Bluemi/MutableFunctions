@@ -1,17 +1,17 @@
 package data;
 
-public class DataSubset {
+public class DataMask {
 	private int[] intIndexes;
 
-	public DataSubset(int[] intIndexes_arg) {
+	public DataMask(int[] intIndexes_arg) {
 		if (intIndexes_arg == null) {
 			intIndexes = new int[0];
-			return;
+		} else {
+			intIndexes = intIndexes_arg;
 		}
-		intIndexes = intIndexes_arg;
 	}
 
-	public DataSubset() {
+	public DataMask() {
 		intIndexes = new int[0];
 	}
 
